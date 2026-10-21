@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>رگال — استایلیست هوشمند مد</title>
+  <meta name="description" content="رگال: بنویسید کجا می‌روید و چه حسی می‌خواهید؛ در میان هزاران لباس از فروشگاه‌های معتبر ایران می‌گردیم و یک استایل کامل در سایز و بودجه‌ی شما می‌چینیم.">
+  <meta name="theme-color" content="#221d19">
+  <link rel="stylesheet" href="assets/css/boutique.css">
+  <!-- برگشت با Back: تا کاتالوگ بارگذاری و صفحه‌ی نتیجه دوباره ساخته شود، صفحه‌ی اول نشان داده نشود -->
+  <script>try { var s = history.state; if (s && s.v && s.v !== "home") document.documentElement.classList.add("is-returning"); } catch (e) {}</script>
+</head>
+<body class="is-home">
+
+  <!-- دیوار محصولات: هزاران لباس از همه‌ی فروشگاه‌ها؛ با کشیدن، چرخ ماوس و نوشتن در نوار جابه‌جا و فیلتر می‌شود -->
+  <div class="wall" aria-label="دیوار محصولات" data-wall>
+    <div class="wall__layer"></div>
+    <div class="wall__veil" aria-hidden="true"></div>
+  </div>
+
+  <!-- نوار بالا -->
+  <header class="topbar">
+    <button class="topbar__menu" type="button" data-open="menu" aria-label="منو">
+      <svg viewBox="0 0 24 24" class="ico"><path d="M3 6.5h18M3 12h18M3 17.5h18"/></svg>
+      <span>منو</span>
+    </button>
+
+    <a class="brand" href="#" data-action="home" aria-label="صفحه‌ی اول">
+      <span class="brand__title" data-results-title></span>
+      <span class="brand__mark" data-site-name></span>
+    </a>
+
+    <nav class="topbar__actions" aria-label="ابزارها">
+      <button type="button" class="icon-btn icon-btn--label" data-open-tailor aria-label="دوخت سفارشی با الهام از پینترست">
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8.3 8 20 17.6M8.3 16 20 6.4"/></svg>
+        <span>دوخت سفارشی</span>
+      </button>
+      <button type="button" class="icon-btn" data-open="account" aria-label="حساب کاربری">
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.2 4-4.8 7.2-4.8s5.9 1.6 7.2 4.8"/></svg>
+        <span class="dot" data-user-dot hidden></span>
+      </button>
+      <button type="button" class="icon-btn" data-open="history" aria-label="جست‌وجوهای قبلی">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3 4.5v4h4"/><path d="M12 7.5V12l3 2"/></svg>
+      </button>
+      <button type="button" class="icon-btn" data-open="wish" aria-label="علاقه‌مندی‌ها">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></svg>
+        <span class="badge" data-count="wish" hidden></span>
+      </button>
+    </nav>
+    <span class="progress" aria-hidden="true"></span>
+  </header>
+
+  <main>
+    <!-- صفحه‌ی اول: نام سایت و این‌که چه کار می‌کند -->
+    <section class="home" aria-labelledby="site-title">
+      <div class="home__copy">
+        <p class="home__eyebrow">استایلیست هوشمند مد</p>
+        <h1 class="wordmark" id="site-title" data-site-name></h1>
+      </div>
+      <p class="home__hint" aria-hidden="true"><span data-wall-count></span><span class="sep">·</span><span class="home__how">دیوار را بکشید یا بنویسید تا لباس‌ها جابه‌جا شوند</span></p>
+    </section>
+
+    <!-- مشاوره: ورود، جمله‌ی کاربر و چند سؤال کوتاه -->
+    <section class="consult" aria-label="چند سؤال برای پیشنهاد دقیق‌تر" aria-live="polite">
+      <div class="consult__inner">
+        <div class="consult__quote">
+          <span class="consult__label">شما نوشتید</span>
+          <p class="consult__text" data-consult-text></p>
+          <button type="button" class="consult__edit" data-consult-edit>ویرایش متن</button>
+        </div>
+        <div class="consult__answers" data-consult-answers></div>
+        <div class="q" data-q></div>
+      </div>
+      <div class="consult__foot">
+        <span class="consult__bar" aria-hidden="true"><i></i></span>
+        <button type="button" class="consult__now" data-consult-done>همین حالا پیشنهاد بده</button>
+      </div>
+    </section>
+
+    <!-- در حال گشتن -->
+    <div class="stream" aria-hidden="true"><div class="stream__row"></div><div class="stream__row stream__row--b"></div></div>
+    <div class="thinking" role="status" aria-live="polite">
+      <span class="pill pill--dark"><span class="spinner"></span><span data-thinking-text>در حال آماده‌سازی پاسخ شما</span></span>
+    </div>
+
+    <!-- نتایج -->
+    <section class="results" aria-label="نتایج" tabindex="-1">
+      <div class="results__inner"></div>
+    </section>
+  </main>
+
+  <!-- نوار پرامپت -->
+  <div class="prompt-wrap">
+    <div class="prompt-menu" id="prompt-menu" hidden>
+      <button type="button" class="prompt-menu__tailor" data-open-tailor>
+        <span>دوخت سفارشی</span><small>بنویسید چه لباسی می‌خواهید؛ از پینترست نمونه می‌آوریم و خیاط برایتان می‌دوزد</small>
+      </button>
+      <p class="prompt-menu__label">ایده بگیرید</p>
+      <div class="chips" data-ideas></div>
+      <p class="prompt-menu__mode" data-ai-mode></p>
+    </div>
+    <div class="gender" role="radiogroup" aria-label="برای چه کسی؟">
+      <span class="gender__thumb" aria-hidden="true"></span>
+      <button type="button" role="radio" aria-checked="false" data-g="W">خانم</button>
+      <button type="button" role="radio" aria-checked="false" data-g="M">آقا</button>
+    </div>
+    <form class="prompt" autocomplete="off">
+      <button type="button" class="prompt__btn prompt__plus" aria-label="ایده‌ها" aria-expanded="false" aria-controls="prompt-menu">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <label class="sr-only" for="q">موقعیتتان را با یک جمله بنویسید</label>
+      <input id="q" class="prompt__input" name="q" type="text" enterkeyhint="send" maxlength="240" placeholder="">
+      <button type="button" class="prompt__clear" aria-label="پاک کردن" hidden>
+        <svg viewBox="0 0 24 24" class="ico"><path d="m6.5 6.5 11 11M17.5 6.5l-11 11"/></svg>
+      </button>
+      <button type="submit" class="prompt__btn prompt__send" aria-label="ارسال">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <footer class="legal">
+    <span data-site-legal></span>
+    <span>محصولات، قیمت‌ها و خرید متعلق به فروشگاه‌های مبدأ است</span>
+  </footer>
+
+  <!-- پیامک آزمایشی کد ورود (نسخه‌ی پیش‌نمایش) -->
+  <div class="sms" role="status" aria-live="polite" hidden></div>
+
+  <!-- کشوها: منو، حساب، تاریخچه، علاقه‌مندی -->
+  <div class="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-modal="true" role="dialog" aria-labelledby="drawer-title" hidden>
+    <div class="drawer__head">
+      <h2 id="drawer-title" class="drawer__title"></h2>
+      <button type="button" class="round-btn round-btn--light" data-close aria-label="بستن">
+        <svg viewBox="0 0 24 24" class="ico"><path d="m6.5 6.5 11 11M17.5 6.5l-11 11"/></svg>
+      </button>
+    </div>
+    <div class="drawer__body"></div>
+  </aside>
+
+  <!-- صفحه‌ی محصول -->
+  <div class="pdp" role="dialog" aria-modal="true" aria-label="جزئیات محصول" hidden>
+    <div class="pdp__media"></div>
+    <div class="pdp__panel"></div>
+    <button type="button" class="round-btn pdp__back" data-close-pdp aria-label="بازگشت">
+      <svg viewBox="0 0 24 24" class="ico"><path d="m9.5 6 6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <!-- دوخت سفارشی: توضیح ← نمونه‌های پینترست ← اندازه‌ها ← ثبت سفارش -->
+  <section class="tailor" role="dialog" aria-modal="true" aria-labelledby="tailor-title" hidden>
+    <header class="tailor__head">
+      <span class="tailor__kicker" id="tailor-title">دوخت سفارشی</span>
+      <ol class="tailor__steps" aria-hidden="true"><li data-s="ask">توضیح</li><li data-s="pins">نمونه</li><li data-s="form">اندازه‌ها</li><li data-s="done">ثبت</li></ol>
+      <button type="button" class="round-btn round-btn--light" data-tailor-close aria-label="بستن">
+        <svg viewBox="0 0 24 24" class="ico"><path d="m6.5 6.5 11 11M17.5 6.5l-11 11"/></svg>
+      </button>
+    </header>
+    <div class="tailor__body" data-tailor-body></div>
+  </section>
+
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data/catalog.js"></script>
+  <script src="data/pins.js"></script>
+  <script src="assets/js/engine.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
